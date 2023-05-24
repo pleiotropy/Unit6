@@ -1,6 +1,8 @@
 public class NumberConverter {
     int[] digits;
     int base;
+    private final String ALL_DIGITS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/";
+
 
     public NumberConverter(int number, int base) {
         String numberAsString = Integer.toString(number); // makes a string representing the number
@@ -44,7 +46,7 @@ public class NumberConverter {
             int remainder = quotient % targetBase;
             quotient = quotient / targetBase;
             //placeValue++;
-            convertedNumber = remainder + convertedNumber;
+            convertedNumber = ALL_DIGITS.charAt(remainder) + convertedNumber;
         }
         return convertedNumber;
     }

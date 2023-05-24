@@ -63,7 +63,6 @@ class ConverterRunner {
             }
         }
 
-        s.close();
 
         NumberConverter nc = new NumberConverter(n, base);
         int[] digits = nc.getDigits();
@@ -72,18 +71,24 @@ class ConverterRunner {
 
         // convert the number to the other two bases and display output
         int numberInDecimal = nc.convertToDecimal();
-        if (base == 2) {
-            System.out.println("Number in decimal: " + numberInDecimal);
-            System.out.println("Number in octal: " + nc.convertFromDecimal(numberInDecimal,8));
-        }
-        else if (base == 8) {
-            System.out.println("Number in decimal: " + numberInDecimal);
-            System.out.println("Number in binary: " + nc.convertFromDecimal(numberInDecimal,2));
-        }
-        else {
-            System.out.println("Number in binary: " + nc.convertFromDecimal(numberInDecimal,2));
-            System.out.println("Number in octal: " + nc.convertFromDecimal(numberInDecimal,8));
-        }
+        System.out.print("To which base do you want to convert?: ");
+        String targetBaseString = s.nextLine();
+        int targetBase = Integer.parseInt(targetBaseString);
+        System.out.println("Number in Base " + targetBase + ": " + nc.convertFromDecimal(numberInDecimal,targetBase));
+        s.close();
+
+//        if (base == 2) {
+//            System.out.println("Number in decimal: " + numberInDecimal);
+//            System.out.println("Number in octal: " + nc.convertFromDecimal(numberInDecimal,8));
+//        }
+//        else if (base == 8) {
+//            System.out.println("Number in decimal: " + numberInDecimal);
+//            System.out.println("Number in binary: " + nc.convertFromDecimal(numberInDecimal,2));
+//        }
+//        else {
+//            System.out.println("Number in binary: " + nc.convertFromDecimal(numberInDecimal,2));
+//            System.out.println("Number in octal: " + nc.convertFromDecimal(numberInDecimal,8));
+//        }
     }
 
     public void getBase()
