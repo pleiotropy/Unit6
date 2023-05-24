@@ -30,7 +30,6 @@ class ConverterRunner {
         System.out.println("validDigits is: " + validDigits);
         boolean allDigitsAreValid = false;
         int n = 0;
-
         while (!allDigitsAreValid)
         {
             allDigitsAreValid = true;
@@ -45,7 +44,6 @@ class ConverterRunner {
                 // if the digit is not in the validDigits string:
                 if (validDigits.indexOf(numberBeingChecked) == -1)
                 {
-                    // set allDigitsAreValid = false; ask the user to re-enter the number
                     allDigitsAreValid = false;
                 }
                 // if the 1st digit is in the validDigits string, do nothing and go to the 2nd digit
@@ -53,11 +51,13 @@ class ConverterRunner {
 
             if (!allDigitsAreValid)
             {
+                // if not all digits are valid, ask the user to re-enter the number
                 System.out.println("The number you entered has invalid characters in it. Valid characters:");
                 System.out.println(validDigits);
             }
             else
             {
+                // if all digits are valid, report to user and set n = the number entered
                 System.out.println("The number you entered is valid.");
                 n = Integer.parseInt(number);
             }
@@ -69,6 +69,21 @@ class ConverterRunner {
         int[] digits = nc.getDigits();
         System.out.println("\n\nDigit array: " + Arrays.toString(digits));
         System.out.println("Number: " + nc.displayOriginalNumber());
+
+        // convert the number to the other two bases and display output
+        int numberInDecimal = nc.convertToDecimal();
+        if (base == 2) {
+            System.out.println("Number in decimal: " + numberInDecimal);
+            System.out.println("Number in octal: " + nc.convertFromDecimal(numberInDecimal,8));
+        }
+        else if (base == 8) {
+            System.out.println("Number in decimal: " + numberInDecimal);
+            System.out.println("Number in binary: " + nc.convertFromDecimal(numberInDecimal,2));
+        }
+        else {
+            System.out.println("Number in binary: " + nc.convertFromDecimal(numberInDecimal,2));
+            System.out.println("Number in octal: " + nc.convertFromDecimal(numberInDecimal,8));
+        }
     }
 
     public void getBase()
