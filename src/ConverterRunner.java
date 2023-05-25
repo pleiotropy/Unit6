@@ -5,22 +5,29 @@ class ConverterRunner {
     public static void main(String[] args) {
         System.out.println("Welcome to the Number Converter!");
         System.out.println("--------------------------------");
-        System.out.print("Enter the base of your number (2, 8 or 10): ");
+        System.out.print("Enter the base of your number (1-64): ");
 
         // check for valid base choice
         int base = 0;
         Scanner s = new Scanner(System.in);
-        while (base != 2 && base != 8 && base != 10)
+        while (base < 1 || base > 64)
         {
             // get user input (base)
             String choice = s.nextLine();
-            base = Integer.parseInt(choice);
+
+            // check if the choice is all integers
+            try {
+                base = Integer.parseInt(choice);
+            }
+            catch (NumberFormatException ex) {
+                System.out.println("The base you entered is not an integer.");
+            }
 
             // prompt user if the base choice is invalid
-            System.out.println("You chose base " + base);
-            if (base != 2 && base != 8 && base != 10)
+            // System.out.println("You chose base " + choice + ".");
+            if (base < 1 || base > 64)
             {
-                System.out.println(base + " is an invalid base. Please choose another base. (2, 8, or 10)");
+                System.out.print(choice + " is an invalid base. Please choose another base (1-64): ");
             }
         }
 
@@ -69,26 +76,13 @@ class ConverterRunner {
         System.out.println("\n\nDigit array: " + Arrays.toString(digits));
         System.out.println("Number: " + nc.displayOriginalNumber());
 
-        // convert the number to the other two bases and display output
+        // convert the number to the target base and display output
         int numberInDecimal = nc.convertToDecimal();
         System.out.print("To which base do you want to convert?: ");
         String targetBaseString = s.nextLine();
         int targetBase = Integer.parseInt(targetBaseString);
         System.out.println("Number in Base " + targetBase + ": " + nc.convertFromDecimal(numberInDecimal,targetBase));
         s.close();
-
-//        if (base == 2) {
-//            System.out.println("Number in decimal: " + numberInDecimal);
-//            System.out.println("Number in octal: " + nc.convertFromDecimal(numberInDecimal,8));
-//        }
-//        else if (base == 8) {
-//            System.out.println("Number in decimal: " + numberInDecimal);
-//            System.out.println("Number in binary: " + nc.convertFromDecimal(numberInDecimal,2));
-//        }
-//        else {
-//            System.out.println("Number in binary: " + nc.convertFromDecimal(numberInDecimal,2));
-//            System.out.println("Number in octal: " + nc.convertFromDecimal(numberInDecimal,8));
-//        }
     }
 
     public void getBase()
