@@ -34,14 +34,14 @@ class ConverterRunner {
         // check for valid digits based on base
         String allDigits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+/";
         String validDigits = allDigits.substring(0,base);
-        System.out.println("validDigits is: " + validDigits);
         boolean allDigitsAreValid = false;
-        int n = 0;
+        //int n = 0;
+        String number = "";
         while (!allDigitsAreValid)
         {
             allDigitsAreValid = true;
             System.out.print("Enter your number: ");
-            String number = s.nextLine();
+            number = s.nextLine();
 
             for (int i = 0; i < number.length(); i++)
             {
@@ -64,23 +64,44 @@ class ConverterRunner {
             }
             else
             {
-                // if all digits are valid, report to user and set n = the number entered
+                // if all digits are valid, report to user
                 System.out.println("The number you entered is valid.");
-                n = Integer.parseInt(number);
             }
         }
 
+        // create instance of NumberConverter class
+        NumberConverter nc = new NumberConverter(number, base);
+        String[] digits = nc.getDigits();
+//        System.out.println("\n\nDigit array: " + Arrays.toString(digits));
+//        System.out.println("Number: " + nc.displayOriginalNumber());
 
-        NumberConverter nc = new NumberConverter(n, base);
-        int[] digits = nc.getDigits();
-        System.out.println("\n\nDigit array: " + Arrays.toString(digits));
-        System.out.println("Number: " + nc.displayOriginalNumber());
-
-        // convert the number to the target base and display output
+        // convert the number to decimal before converting to any other base
         int numberInDecimal = nc.convertToDecimal();
-        System.out.print("To which base do you want to convert?: ");
-        String targetBaseString = s.nextLine();
-        int targetBase = Integer.parseInt(targetBaseString);
+
+        System.out.print("To which base do you want to convert? (1-64): ");
+
+        // check for valid base choice
+        int targetBase = 0;
+        while (targetBase < 1 || targetBase > 64)
+        {
+            // get user input (base)
+            String targetBaseString = s.nextLine();
+
+            // check if the choice is all integers
+            try {
+                targetBase = Integer.parseInt(targetBaseString);
+            }
+            catch (NumberFormatException ex) {
+                System.out.println("The base you entered is not an integer.");
+            }
+
+            // prompt user if the base choice is invalid
+            if (targetBase < 1 || targetBase > 64)
+            {
+                System.out.print(targetBaseString + " is an invalid base. Please choose another base (1-64): ");
+            }
+        }
+        // display and convert number in decimal to the target base
         System.out.println("Number in Base " + targetBase + ": " + nc.convertFromDecimal(numberInDecimal,targetBase));
         s.close();
     }
