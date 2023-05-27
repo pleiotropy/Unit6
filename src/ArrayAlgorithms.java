@@ -172,4 +172,40 @@ public class ArrayAlgorithms {
         return str;
     }
 
+    // U6L5 Enhanced For Loops / For Each Loops
+
+    /** Returns the length of the longest String(s) in an array of Strings.
+     *  Does NOT mutate (modify) stringList.
+     *  PRECONDITION: stringList.length > 0
+     *
+     *  @param stringList  original array of Strings; does not get modified
+     *  @return  length of the longest String in the array
+     */
+    public static int longestString(String[] stringList)
+    {
+        int longestStringLength = 0;
+        for (String stringInArray : stringList )
+        {
+            if (stringInArray.length() > longestStringLength)
+            {
+                longestStringLength = stringInArray.length();
+            }
+        }
+        return longestStringLength;
+    }
+
+    /** Changes all words in an array of words to uppercase.
+     *  DOES mutate (modify) original wordList.
+     *  PRECONDITION: wordList.length > 0
+     *
+     *  @param wordList  original array of Strings, modified by method
+     */
+    public static void makeUppercase(String[] wordList)
+    {
+        for (int i = 0; i < wordList.length; i++)
+        {
+            wordList[i] = wordList[i].toUpperCase();
+        }
+    }
+
 }

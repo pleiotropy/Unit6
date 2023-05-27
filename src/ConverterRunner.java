@@ -24,7 +24,6 @@ class ConverterRunner {
             }
 
             // prompt user if the base choice is invalid
-            // System.out.println("You chose base " + choice + ".");
             if (base < 1 || base > 64)
             {
                 System.out.print(choice + " is an invalid base. Please choose another base (1-64): ");
@@ -71,9 +70,6 @@ class ConverterRunner {
 
         // create instance of NumberConverter class
         NumberConverter nc = new NumberConverter(number, base);
-        String[] digits = nc.getDigits();
-//        System.out.println("\n\nDigit array: " + Arrays.toString(digits));
-//        System.out.println("Number: " + nc.displayOriginalNumber());
 
         // convert the number to decimal before converting to any other base
         int numberInDecimal = nc.convertToDecimal();
