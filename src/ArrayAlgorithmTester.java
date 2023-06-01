@@ -110,13 +110,125 @@ public class ArrayAlgorithmTester
 //
 //        // original array NOT modified
 //        System.out.println(Arrays.toString(nums));
-
-        // TEST shiftLeftModify
-        int[] nums = {5, 1, 3, 4, 7};
-        ArrayAlgorithms.shiftLeftModify(nums);
-
-        // original array IS modified
-        System.out.println(Arrays.toString(nums));
+//
+//        // TEST shiftLeftModify
+//        int[] nums = {5, 1, 3, 4, 7};
+//        ArrayAlgorithms.shiftLeftModify(nums);
+//
+//        // original array IS modified
+//        System.out.println(Arrays.toString(nums));
+//
+//        // TEST shiftNumLeftModify
+//        int[] nums = {1, 2, 3, 4, 5, 6};
+//        ArrayAlgorithms.shiftNumLeftModify(nums, 2);
+//
+//        // original array IS modified; all elements shifted left 2
+//        System.out.println(Arrays.toString(nums));
+//
+//        int[] sameNums = {1, 2, 3, 4, 5, 6};
+//        ArrayAlgorithms.shiftNumLeftModify(sameNums, 4);
+//
+//        // original array IS modified; all elements shifted left 4
+//        System.out.println(Arrays.toString(sameNums));
+//
+//        int[] moreNums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+//        ArrayAlgorithms.shiftNumLeftModify(moreNums, 8);
+//
+//        // original array IS modified; all elements shifted left 8
+//        System.out.println(Arrays.toString(moreNums));
+//
+//        int[] moreNumsAgain = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+//        ArrayAlgorithms.shiftNumLeftModify(moreNumsAgain, 10);
+//
+//        // original array IS modified; all elements shifted left 10
+//        System.out.println(Arrays.toString(moreNumsAgain));
+//
+//        // TEST shiftNumRightModify
+//
+//        int[] nums = {1, 2, 3, 4, 5, 6};
+//        ArrayAlgorithms.shiftNumRightModify(nums, 2);
+//
+//        // original array IS modified; all elements shifted left 2
+//        System.out.println(Arrays.toString(nums));
+//
+//        int[] sameNums = {1, 2, 3, 4, 5, 6};
+//        ArrayAlgorithms.shiftNumRightModify(sameNums, 4);
+//
+//        // original array IS modified; all elements shifted left 4
+//        System.out.println(Arrays.toString(sameNums));
+//
+//        int[] moreNums = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+//        ArrayAlgorithms.shiftNumRightModify(moreNums, 8);
+//
+//        // original array IS modified; all elements shifted left 8
+//        System.out.println(Arrays.toString(moreNums));
+//
+//        int[] moreNumsAgain = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+//        ArrayAlgorithms.shiftNumRightModify(moreNumsAgain, 10);
+//
+//        // original array IS modified; all elements shifted left 10
+//        System.out.println(Arrays.toString(moreNumsAgain));
+//
+//        // TEST reverse
+//        int[] even = {1, 2, 3, 4, 5, 6};
+//        int[] reversed1 = ArrayAlgorithms.reverse(even);
+//        System.out.println(Arrays.toString(reversed1));
+//
+//        // original array is NOT modified
+//        System.out.println(Arrays.toString(even));
+//
+//        System.out.println("----");
+//
+//        int[] odd = {1, 2, 3, 4, 5};
+//        int[] reversed2 = ArrayAlgorithms.reverse(odd);
+//        System.out.println(Arrays.toString(reversed2));
+//
+//        // original array is NOT modified
+//        System.out.println(Arrays.toString(odd));
+//
+//        System.out.println("----");
+//
+//        int[] even2 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+//        int[] reversed3 = ArrayAlgorithms.reverse(even2);
+//        System.out.println(Arrays.toString(reversed3));
+//
+//        // original array is NOT modified
+//        System.out.println(Arrays.toString(even2));
+//
+//        System.out.println("----");
+//
+//        int[] odd2 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+//        int[] reversed4 = ArrayAlgorithms.reverse(odd2);
+//        System.out.println(Arrays.toString(reversed4));
+//
+//        // original array is NOT modified
+//        System.out.println(Arrays.toString(odd2));
+//
+//        // TEST reverseModify
+//
+//        int[] even = {1, 2, 3, 4, 5, 6};
+//        ArrayAlgorithms.reverseModify(even);
+//
+//        // original array IS modified
+//        System.out.println(Arrays.toString(even));
+//
+//        int[] odd = {1, 2, 3, 4, 5};
+//        ArrayAlgorithms.reverseModify(odd);
+//
+//        // original array IS modified
+//        System.out.println(Arrays.toString(odd));
+//
+//        int[] even2 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+//        ArrayAlgorithms.reverseModify(even2);
+//
+//        // original array IS modified
+//        System.out.println(Arrays.toString(even2));
+//
+//        int[] odd2 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+//        ArrayAlgorithms.reverseModify(odd2);
+//
+//        // original array IS modified
+//        System.out.println(Arrays.toString(odd2));
 
 
     }

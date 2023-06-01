@@ -398,5 +398,148 @@ public class ArrayAlgorithms {
             numList[i] = shiftedList[i];
         }
     }
+
+    /** Shifts all elements in numList to the LEFT shiftNum places;
+     *  this method modifies the original array and does not
+     *  return anything (void).
+     *
+     *  The first shiftNum elements of the array should wrap around
+     *  to the back of the array.  For example, given the array
+     *  {5, 1, 3, 4, 7, 6} and shiftNum = 2, this method MODIFIES
+     *  the array to {3, 4, 7, 6, 5, 1} (all elements shifted left
+     *  two with the first two elements wrapping around to the back)
+     *  And given the array {5, 1, 3, 4, 7, 6} and shiftNum = 4,
+     *  this method modifies the array to {7, 6, 5, 1, 3, 4}
+     *
+     *  Assume shiftNum <= numList.length (precondition)
+     *
+     *  DOES mutate (modify) numList
+     *  PRECONDITION: numList.length > 0
+     *  PRECONDITION: shiftNum <= numList.length
+     *
+     *  @param numList  original array of numbers; DOES get modified
+     */
+    public static void shiftNumLeftModify2(int[] numList, int shiftNum)
+    {
+        for (int i = 0; i < shiftNum; i++)
+        {
+            shiftLeftModify(numList);
+        }
+    }
+    public static void shiftNumLeftModify(int[] numList, int shiftNum)
+    {
+        int[] newArray = new int[numList.length];
+        // from original indices 0 - 7 (i = 0; i < shiftNum; i++)
+        // --> new indices 4 - 11 (j = length-shiftNum; j < length; j++)
+        int j = newArray.length - shiftNum;
+        for (int i = 0; i < shiftNum; i++)
+        {
+            if (j < numList.length)
+            {
+                newArray[j] = numList[i];
+                j++;
+            }
+        }
+        // from original indices 8 - 11 (i = shiftNum; i < length; i++)
+        // --> new indices 0 - 4 (j = 0; j < length-shiftNum+1; j++)
+        j = 0;
+        for (int i = shiftNum; i < numList.length; i++)
+        {
+            if (j < numList.length - shiftNum + 1)
+            {
+                newArray[j] = numList[i];
+                j++;
+            }
+        }
+
+
+        // set each element in the original numList to the corresponding element in the new array
+        for (int i = 0; i < numList.length; i++)
+        {
+            numList[i] = newArray[i];
+        }
+    }
+
+    /** Shifts all elements in numList to the RIGHT shiftNum places;
+     *  this method modifies the original array and does not
+     *  return anything (void).
+     *
+     *  The last shiftNum elements of the array should wrap around
+     *  to the front of the array.  For example, given the array
+     *  {5, 1, 3, 4, 7, 6} and shiftNum = 2, this method MODIFIES
+     *  the array to {7, 6, 5, 1, 3, 4} (all elements shifted right
+     *  two with the last two elements wrapping around to the front)
+     *  And given the array {5, 1, 3, 4, 7, 6} and shiftNum = 4,
+     *  this method modifies the array to {3, 4, 7, 6, 5, 1}
+     *
+     *  Assume shiftNum <= numList.length (precondition)
+     *
+     *  DOES mutate (modify) numList
+     *  PRECONDITION: numList.length > 0
+     *  PRECONDITION: shiftNum <= numList.length
+     *
+     *  @param numList  original array of numbers; DOES get modified
+     */
+    public static void shiftNumRightModify(int[] numList, int shiftNum)
+    {
+        int rightShiftNum = numList.length - shiftNum;
+        shiftNumLeftModify(numList, rightShiftNum);
+    }
+
+    /** Returns a NEW array of ints that contains all elements of numList in
+     *  reversed order.  For example, given the array {5, 1, 3, 4, 7, 6}, this
+     *  method returns the array {6, 7, 4, 3, 1, 5}.
+     *  Should work with all array lengths (both odd and even).
+     *
+     *  Does NOT mutate (modify) original wordList
+     *  PRECONDITION: numList.length > 0
+     *
+     *  @param numList  original array of numbers; does NOT get modified
+     *  @return  array of ints that contains numList in reversed order
+     */
+    public static int[] reverse(int[] numList)
+    {
+        // make new array with same length as original numList
+        int[] reversedNumList = new int[numList.length];
+
+        int j = 0; // counter variable for the numList index
+
+        for (int i = numList.length - 1; i >= 0; i--)
+        {
+            reversedNumList[i] = numList[j];
+            j++;
+        }
+        return reversedNumList;
+    }
+
+    /** Reverses all elements in an array; this method modifies
+     *  the original array and does not return anything (void).
+     *  For example, given the array {5, 1, 3, 4, 7, 6}, this method
+     *  MODIFIES the array to {6, 7, 4, 3, 1, 5}.
+     *  Should work with all array lengths (both odd and even).
+     *
+     *  DOES mutate (modify) numList
+     *  PRECONDITION: numList.length > 0
+     *
+     *  @param numList  original array of numbers; DOES get modified
+     */
+    public static void reverseModify1(int[] numList)
+    {
+        int[] newArray = reverse(numList);
+        for (int i = 0; i < numList.length; i++)
+        {
+            numList[i] = newArray[i];
+        }
+    }
+
+    public static void reverseModify2(int[] numList)
+    {
+        for (int i = 0; i < numList.length / 2; i++)
+        {
+            int old = numList[i];
+            numList[i] = numList[numList.length-1-i];
+            numList[numList.length-1-i] = old;
+        }
+    }
 }
 
