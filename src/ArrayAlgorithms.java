@@ -426,6 +426,7 @@ public class ArrayAlgorithms {
             shiftLeftModify(numList);
         }
     }
+
     public static void shiftNumLeftModify(int[] numList, int shiftNum)
     {
         int[] newArray = new int[numList.length];
@@ -541,5 +542,61 @@ public class ArrayAlgorithms {
             numList[numList.length-1-i] = old;
         }
     }
+
+    // Coding Bat
+    public int[] fizzArray3(int start, int end)
+    {
+        int diff = end - start;
+        int[] fizz = new int[diff];
+        for (int i = start; i < end; i++)
+        {
+            fizz[i-start] = i;
+        }
+        return fizz;
+    }
+
+    public boolean isEverywhere(int[] nums, int val)
+    {
+        int i = 0;
+        while (i < nums.length - 1)
+        {
+            int leftNum = nums[i];
+            int rightNum = nums[i+1];
+            if (leftNum != val && rightNum != val)
+            {
+                return false;
+            }
+            i++;
+        }
+        return true;
+    }
+
+    public int centeredAverage(int[] nums)
+    {
+        // add up all of the numbers
+        int total = 0;
+        int max = nums[0]; // set initial value of maximum
+        int min = nums[0]; // set initial value of minimum
+        for (int num : nums)
+        {
+            total += num;
+            if (num > max) // find the max value
+            {
+                max = num;
+            }
+            if (num < min) // find the min value
+            {
+                min = num;
+            }
+        }
+
+        // subtract the max and min values from the total
+        total = total - max - min;
+
+        // divide by length - 2
+        int centeredAverage = total / (nums.length - 2);
+        return centeredAverage;
+    }
+
 }
 
