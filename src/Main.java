@@ -34,36 +34,5 @@ public class Main
 //        }
     }
 
-
-
-    /** Computes employee wages as described in part (b) and stores them in wages.
-     * The parameter fixedWage represents the fixed amount each employee is paid per day.
-     * The parameter perItemWage represents the amount each employee is paid per item sold.
-     */
-    public void computeWages(double fixedWage, double perItemWage)
-    {
-        for (int emp = 0; emp < itemsSold.length; emp++)
-        {
-            // start with the fixed wage
-            double employeeComputedWage = fixedWage;
-
-            // add the per item wage
-            employeeComputedWage += perItemWage * itemsSold[emp];
-
-            // if necessary, add bonus
-            if (itemsSold[emp] > computeBonusThreshold())
-            {
-                employeeComputedWage *= 1.1;
-            }
-
-            // store in [wages]
-            wages[emp] = employeeComputedWage;
-        }
-    }
-
-
-
-
-
 }
 
